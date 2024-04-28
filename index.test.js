@@ -7,6 +7,11 @@ import {
   multiply,
   Calculator,
   caesarCipher,
+  getAverage,
+  getMin,
+  getMax,
+  getLength,
+  analyzeArray,
 } from "./index";
 
 test('first character capitalized', () => {
@@ -62,4 +67,33 @@ test('ceasar cipher shift characters', () => {
   expect(caesarCipher('xyzABC', 3)).toBe('abcDEF');
   expect(caesarCipher('a b', 3)).toBe('d e');
   expect(caesarCipher('Let\'s go!', 1)).toBe('Mfu\'t hp!');
+});
+
+test('get average from an array of numbers', () => {
+  expect(getAverage([1,8,3,4,2,6])).toBe(4);
+  expect(getAverage([2,3,5,7,8,9])).toBeCloseTo(5.67);
+});
+
+test('get min from an array of numbers', () => {
+  expect(getMin([1,8,3,4,2,6])).toBe(1);
+  expect(getMin([2,3,5,7,8,-9])).toBe(-9);
+});
+
+test('get max from an array of numbers', () => {
+  expect(getMax([1,8,3,4,2,6])).toBe(8);
+  expect(getMax([-2,3,5,7,8,9])).toBe(9);
+});
+
+test('get length of an array', () => {
+  expect(getLength([1,8,3,4,2,6])).toBe(6);
+  expect(getLength([-2,3,5,7,8])).toBe(5);
+});
+
+test('analyzeArray() return an object consists of average, min, max and length', () => {
+  expect(analyzeArray([1,8,3,4,2,6])).toEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6
+  });
 });

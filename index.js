@@ -79,6 +79,43 @@ function caesarCipher(string, key) {
   }).join('');
 }
 
+function getAverage(array) {
+  return array.reduce((accumulator, current) => accumulator + current) / array.length;
+}
+
+function getMin(array) {
+  let min = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] < min) min = array[i];
+  }
+
+  return min;
+}
+
+function getMax(array) {
+  let max = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) max = array[i];
+  }
+
+  return max;
+}
+
+function getLength(array) {
+  return array.length;
+}
+
+function analyzeArray(array) {
+  return {
+    average: getAverage(array),
+    min: getMin(array),
+    max: getMax(array),
+    length: getLength(array),
+  }
+}
+
 export { 
   capitalize, 
   reverseString, 
@@ -88,6 +125,11 @@ export {
   multiply,
   Calculator,
   caesarCipher,
+  getAverage,
+  getMin,
+  getMax,
+  getLength,
+  analyzeArray,
 };
 
 (function () {
